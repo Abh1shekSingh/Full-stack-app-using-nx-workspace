@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import styles from './app.module.css';
 import { Todo } from "@myorg/data"
+import { Todos } from "@myorg/ui"
 
 export function App() {
 
@@ -27,11 +28,7 @@ export function App() {
   return (
     <>
       <h1>Todos</h1>
-      <ul>
-        {todos.map((todo) => (
-          <li className='todo' key={todo.title}>{todo.title}</li>
-        ))}
-      </ul>
+      <Todos todos = {todos} />
 
       <button id={'add-todo'} onClick={addTodo}>
         Add Todo
