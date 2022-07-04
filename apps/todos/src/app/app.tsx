@@ -1,6 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useEffect, useState } from 'react';
-import styles from './app.module.css';
 import { Todo } from "@myorg/data"
 import { Todos } from "@myorg/ui"
 
