@@ -1,12 +1,45 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { useEffect, useState } from 'react';
 import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+
+interface Todo {
+  title:string;
+}
 
 export function App() {
+
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  useEffect(() => {
+    fetch('/api/todos')
+      .then((_) => _.json())
+      .then(setTodos);
+  }, []);
+
+  function addTodo(){
+    fetch('api/addTodo', {
+        method:'POST',
+        body: '',
+    })
+    .then((_) => _.json())
+    .then((newTodo) => {
+      setTodos([...todos, newTodo]);
+    })
+  }
+
   return (
     <>
-      <NxWelcome title="todos" />
-      <div />
+      <h1>Todos</h1>
+      <ul>
+        {todos.map((todo) => (
+          <li className='todo' key={todo.title}>{todo.title}</li>
+        ))}
+      </ul>
+
+      <button id={'add-todo'} onClick={addTodo}>
+        Add Todo
+      </button>
+
     </>
   );
 }
