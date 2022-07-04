@@ -1,8 +1,5 @@
 import { Express } from "express";
-
-interface Todo {
-  title: string;
-}
+import { Todo } from "@myorg/data"
 
 
 const todos: Todo[] = [{ title: "Buy milk" }, { title: "Buy eggs" }];

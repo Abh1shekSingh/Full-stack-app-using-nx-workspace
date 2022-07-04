@@ -1,10 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useEffect, useState } from 'react';
 import styles from './app.module.css';
-
-interface Todo {
-  title:string;
-}
+import { Todo } from "@myorg/data"
 
 export function App() {
 
